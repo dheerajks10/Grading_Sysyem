@@ -9,6 +9,16 @@ class GradeSystem{
     }
     CalculateBuildGrade(){
         let grade="";
+        try{
+            if(this.total<=0 || this.passed<=0 || this.failed<=0 || this.skipped<=0 || this.aborted<=0) throw "Invaild ..? check grades.";
+            // if(this.passed>this.total) throw "passed test cases are not greater than to total test cases";
+            // if(this.skipped>this.total) throw "total skipped test cases are not greater than total test cases";
+        }
+        catch(err)
+        {
+        return err;
+        }
+
         let percentage= this.passed/(this.total- (this.skipped+this.aborted));
         percentage=parseInt(percentage*100);
         var grades = {
